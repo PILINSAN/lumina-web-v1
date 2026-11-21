@@ -1,0 +1,365 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+- LUMINA design system.
+- Bone #FAF8F4, pale mint #E9F1EC, deep sage #2F5D50, sand gold #C8A97E.
+- Cormorant Garamond for display, Inter for interface.
+ */
+
+@theme inline {
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-bone: var(--bone);
+  --color-mint: var(--mint);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-sand: var(--sand);
+  --color-sand-light: var(--sand-light);
+  --color-ink: var(--ink);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1.25rem;
+
+  /* Brand palette */
+  --bone: oklch(0.982 0.006 84.6);
+  --mint: oklch(0.95 0.013 158);
+  --sage: oklch(0.62 0.055 165);
+  --sage-deep: oklch(0.43 0.058 170);
+  --sand: oklch(0.76 0.067 75);
+  --sand-light: oklch(0.88 0.045 80);
+  --ink: oklch(0.25 0.03 170);
+
+  --glass: oklch(0.99 0.005 85 / 0.42);
+  --glass-strong: oklch(0.99 0.005 85 / 0.72);
+  --glass-border: oklch(1 0 0 / 0.6);
+
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: oklch(0.99 0.004 85);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.99 0.004 85);
+  --popover-foreground: var(--ink);
+  --primary: var(--sage-deep);
+  --primary-foreground: var(--bone);
+  --secondary: var(--mint);
+  --secondary-foreground: var(--sage-deep);
+  --muted: oklch(0.95 0.008 120);
+  --muted-foreground: oklch(0.47 0.025 165);
+  --accent: var(--sand);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.577 0.2 27);
+  --destructive-foreground: var(--bone);
+  --border: oklch(0.43 0.058 170 / 0.14);
+  --input: oklch(0.43 0.058 170 / 0.2);
+  --ring: var(--sand);
+
+  --gradient-sage: linear-gradient(135deg, var(--sage-deep), oklch(0.36 0.05 172));
+  --gradient-sand: linear-gradient(120deg, var(--sand-light), var(--sand), oklch(0.68 0.07 68));
+  --gradient-hero-veil: linear-gradient(
+    90deg,
+    oklch(0.982 0.006 84.6 / 0.96) 0%,
+    oklch(0.982 0.006 84.6 / 0.78) 34%,
+    oklch(0.982 0.006 84.6 / 0.1) 68%,
+    transparent 100%
+  );
+  --gradient-hero-floor: linear-gradient(0deg, var(--bone) 0%, transparent 32%);
+
+  --shadow-soft: 0 30px 60px -30px oklch(0.43 0.058 170 / 0.28),
+    0 8px 20px -12px oklch(0.43 0.058 170 / 0.18);
+  --shadow-lift: 0 50px 90px -40px oklch(0.43 0.058 170 / 0.42),
+    0 20px 40px -24px oklch(0.76 0.067 75 / 0.4);
+  --shadow-glow: 0 0 0 1px oklch(0.76 0.067 75 / 0.35), 0 18px 50px -12px oklch(0.76 0.067 75 / 0.6);
+
+  --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --chart-1: var(--sage-deep);
+  --chart-2: var(--sand);
+  --chart-3: var(--sage);
+  --chart-4: var(--mint);
+  --chart-5: var(--ink);
+  --sidebar: var(--bone);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--sage-deep);
+  --sidebar-primary-foreground: var(--bone);
+  --sidebar-accent: var(--mint);
+  --sidebar-accent-foreground: var(--sage-deep);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--sand);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--sand-light);
+    color: var(--ink);
+  }
+}
+
+/* ---------- Living gradient mesh ---------- */
+
+@keyframes mesh-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(12vw, 8vh, 0) scale(1.15); }
+  66% { transform: translate3d(-6vw, 14vh, 0) scale(0.92); }
+}
+@keyframes mesh-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-14vw, -10vh, 0) scale(1.2); }
+}
+@keyframes mesh-drift-c {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+  40% { transform: translate3d(8vw, -12vh, 0) scale(0.9); }
+  80% { transform: translate3d(-10vw, 6vh, 0) scale(1.1); }
+}
+
+@utility mesh-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+@utility mesh-a {
+  background: radial-gradient(circle, var(--mint) 0%, transparent 70%);
+  animation: mesh-drift-a 28s var(--ease-cinema) infinite;
+}
+@utility mesh-b {
+  background: radial-gradient(circle, oklch(0.43 0.058 170 / 0.32) 0%, transparent 68%);
+  animation: mesh-drift-b 34s ease-in-out infinite;
+}
+@utility mesh-c {
+  background: radial-gradient(circle, oklch(0.76 0.067 75 / 0.38) 0%, transparent 70%);
+  animation: mesh-drift-c 40s ease-in-out infinite;
+}
+
+@utility grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Glass ---------- */
+
+@utility glass {
+  background: var(--glass);
+  backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft), inset 0 1px 0 oklch(1 0 0 / 0.7);
+}
+
+@utility glass-strong {
+  background: var(--glass-strong);
+  backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+}
+
+@utility glass-dark {
+  background: oklch(0.3 0.04 170 / 0.38);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid oklch(1 0 0 / 0.22);
+}
+
+/* Cursor-tracked border light. Set --mx / --my on the element. */
+@utility edge-glow {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      oklch(0.76 0.067 75 / 0.95),
+      oklch(1 0 0 / 0.5) 35%,
+      transparent 65%
+    );
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: var(--glow, 0);
+    transition: opacity 0.5s var(--ease-cinema);
+    pointer-events: none;
+    z-index: 2;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      520px circle at var(--mx, 50%) var(--my, 50%),
+      oklch(1 0 0 / 0.38),
+      transparent 55%
+    );
+    opacity: var(--glow, 0);
+    transition: opacity 0.5s var(--ease-cinema);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+/* Logo artwork sits on a cream backdrop; multiply melts it into the page. */
+@utility logo-blend {
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Typography ---------- */
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 0.88;
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+@utility text-gradient-sand {
+  background: var(--gradient-sand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-hero-veil {
+  background: var(--gradient-hero-veil);
+}
+@utility bg-hero-floor {
+  background: var(--gradient-hero-floor);
+}
+@utility bg-gradient-sage {
+  background: var(--gradient-sage);
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-lift {
+  box-shadow: var(--shadow-lift);
+}
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+/* ---------- Magnetic shine button ---------- */
+
+@keyframes shine-sweep {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  60%, 100% { transform: translateX(220%) skewX(-20deg); }
+}
+
+@utility btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.55), transparent);
+    animation: shine-sweep 3.6s var(--ease-cinema) infinite;
+    pointer-events: none;
+  }
+}
+
+/* ---------- Rich text from Shopify ---------- */
+
+@utility prose-lumina {
+  color: var(--muted-foreground);
+  line-height: 1.75;
+  font-size: 0.95rem;
+  & p { margin-bottom: 1rem; }
+  & strong, & b { color: var(--ink); font-weight: 600; }
+  & h1, & h2, & h3, & h4 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    font-size: 1.6rem;
+    margin: 1.75rem 0 0.5rem;
+    line-height: 1.1;
+  }
+  & ul { list-style: none; padding: 0; margin-bottom: 1rem; }
+  & li { padding-left: 1.25rem; position: relative; margin-bottom: 0.4rem; }
+  & li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 0.45rem;
+    height: 1px;
+    background: var(--sand);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh-a, .mesh-b, .mesh-c { animation: none; }
+  .btn-shine::after { animation: none; }
+}
