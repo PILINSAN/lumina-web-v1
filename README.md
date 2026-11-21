@@ -27,3 +27,6 @@ npm run dev
 - TypeScript
 - React
 - Tailwind CSS
+
+## Acceso rápido a la tienda (LUMINA v1)
+- **Tienda en vivo (Cloudflare Workers):** https://tanstack-start-ts.lumina-colombia.workers.dev
