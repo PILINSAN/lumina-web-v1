@@ -1,2 +1,1 @@
-# lumina-web-v1
-LUMINA v1 — Catálogo web dropshipping (COD) con Shopify Storefront API, TanStack Start y Cloudflare Workers, con flujo de pedido estructurado por WhatsApp.
+Primera versión de LUMINA para Colombia bajo modelo contraentrega (COD). Conecta productos desde Shopify Storefront API, corre en Cloudflare Workers y genera un resumen estructurado con datos de envío para cerrar pedidos por WhatsApp.
