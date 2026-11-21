@@ -1,22 +1,44 @@
-# LUMINA — Storefront v1 (Colombia)
+<div align="center">
 
-Tienda online de **LUMINA** para Colombia con integración a **Shopify Storefront API** y flujo de pedidos contraentrega (**COD**) por **WhatsApp**.
+# ✨ LUMINA — Storefront v1 (Colombia)
 
-## Acceso rápido a la tienda
+<img src="./src/assets/lumina-logo-full.png" alt="LUMINA Logo" width="260" />
 
-- **Tienda en vivo (Cloudflare Workers):** [https://tanstack-start-ts.lumina-colombia.workers.dev](https://tanstack-start-ts.lumina-colombia.workers.dev)
-- **Repositorio de versión:** `PILINSAN/lumina-web-v1`
+**Experiencia de compra ágil para Colombia con catálogo de Shopify y pedidos contraentrega (COD) por WhatsApp.**
 
-## Stack tecnológico (v1)
+<br />
 
-- **Framework / Servidor:** TanStack Start + Nitro
-- **Despliegue:** Cloudflare Workers (`lumina-colombia`)
-- **Catálogo y datos de tienda:** Shopify Storefront API
-- **Flujo de compra:** Carrito sincronizado + pedido contraentrega (COP) vía WhatsApp
-- **Frontend:** TypeScript, React y Tailwind CSS
+<a href="https://tanstack-start-ts.lumina-colombia.workers.dev">
+  <img src="https://img.shields.io/badge/🛒_Abrir_Tienda_en_Vivo-Cloudflare_Workers-0f172a?style=for-the-badge" alt="Abrir tienda en vivo" />
+</a>
+<a href="https://github.com/PILINSAN/lumina-web-v1">
+  <img src="https://img.shields.io/badge/📦_Versión-v1.0_Estable-1e293b?style=for-the-badge" alt="Versión v1" />
+</a>
 
-## Notas de despliegue y desarrollo
+</div>
 
-- La aplicación corre como despliegue SSR/edge en **Cloudflare Workers** mediante `npx nitro deploy --prebuilt`.
-- Las variables de entorno sensibles (`.env`, `.env.*`) quedan excluidas del repositorio mediante `.gitignore` y se configuran en Cloudflare (**Workers & Pages** → `tanstack-start-ts` → **Settings** → **Variables and Secrets**).
-- Esta versión (`v1`) representa la base funcional de lanzamiento; las mejoras de interfaz y WhatsApp Business API se planifican para la `v2`.
+---
+
+## 🔗 Acceso directo
+
+- 🌐 **Tienda en vivo:** [https://tanstack-start-ts.lumina-colombia.workers.dev](https://tanstack-start-ts.lumina-colombia.workers.dev)
+- 💬 **Flujo de compra:** Carrito sincronizado + pedido contraentrega (**COP**) directo a **WhatsApp**.
+
+---
+
+## 🛠️ Stack tecnológico (v1)
+
+| Capa | Tecnología | Rol en el proyecto |
+| :--- | :--- | :--- |
+| ⚡ **Framework & SSR** | **TanStack Start + Nitro** | Renderizado, rutas y ejecución de la aplicación |
+| ☁️ **Hosting / Edge** | **Cloudflare Workers** (`lumina-colombia`) | Despliegue en la nube disponible 24/7 |
+| 🛍️ **Catálogo** | **Shopify Storefront API** | Productos, precios y sincronización de tienda |
+| 🎨 **Interfaz** | **React + TypeScript + Tailwind CSS** | Componentes, diseño visual y experiencia de usuario |
+
+---
+
+## 🔒 Seguridad y despliegue
+
+- 🔐 **Variables de entorno protegidas:** Los archivos `.env` y `.env.*` están ignorados por Git (`.gitignore`) y se cargan directamente en **Cloudflare** (*Workers & Pages* → `tanstack-start-ts` → *Settings* → *Variables and Secrets*).
+- 🚀 **Comando de despliegue:** `npx nitro deploy --prebuilt`.
+- 🧭 **Hoja de ruta:** Esta `v1` reúne la base funcional de lanzamiento; los rediseños de interfaz y la integración con WhatsApp Business API se trabajan en la `v2`.
