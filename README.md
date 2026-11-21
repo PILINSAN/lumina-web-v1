@@ -1,32 +1,22 @@
-# Welcome to your Lovable project
+# LUMINA — Storefront v1 (Colombia)
 
-This project was built with [Lovable](https://lovable.dev).
+Tienda online de **LUMINA** para Colombia con integración a **Shopify Storefront API** y flujo de pedidos contraentrega (**COD**) por **WhatsApp**.
 
-## Build with Lovable
+## Acceso rápido a la tienda
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- **Tienda en vivo (Cloudflare Workers):** [https://tanstack-start-ts.lumina-colombia.workers.dev](https://tanstack-start-ts.lumina-colombia.workers.dev)
+- **Repositorio de versión:** `PILINSAN/lumina-web-v1`
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Stack tecnológico (v1)
 
-## Development
+- **Framework / Servidor:** TanStack Start + Nitro
+- **Despliegue:** Cloudflare Workers (`lumina-colombia`)
+- **Catálogo y datos de tienda:** Shopify Storefront API
+- **Flujo de compra:** Carrito sincronizado + pedido contraentrega (COP) vía WhatsApp
+- **Frontend:** TypeScript, React y Tailwind CSS
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Notas de despliegue y desarrollo
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
-
-## Acceso rápido a la tienda (LUMINA v1)
-- **Tienda en vivo (Cloudflare Workers):** https://tanstack-start-ts.lumina-colombia.workers.dev
+- La aplicación corre como despliegue SSR/edge en **Cloudflare Workers** mediante `npx nitro deploy --prebuilt`.
+- Las variables de entorno sensibles (`.env`, `.env.*`) quedan excluidas del repositorio mediante `.gitignore` y se configuran en Cloudflare (**Workers & Pages** → `tanstack-start-ts` → **Settings** → **Variables and Secrets**).
+- Esta versión (`v1`) representa la base funcional de lanzamiento; las mejoras de interfaz y WhatsApp Business API se planifican para la `v2`.
