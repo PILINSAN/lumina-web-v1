@@ -1,0 +1,866 @@
+﻿=== package.json ===
+{
+  "name": "tanstack_start_ts",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "overrides": {
+    "rolldown": "1.2.1",
+    "shell-quote": ">=1.11.0"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-alert-dialog": "^1.1.15",
+    "@radix-ui/react-aspect-ratio": "^1.1.8",
+    "@radix-ui/react-avatar": "^1.1.11",
+    "@radix-ui/react-checkbox": "^1.3.3",
+    "@radix-ui/react-collapsible": "^1.1.12",
+    "@radix-ui/react-context-menu": "^2.2.16",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-hover-card": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-menubar": "^1.1.16",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-radio-group": "^1.3.8",
+    "@radix-ui/react-scroll-area": "^1.2.10",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slider": "^1.3.6",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-switch": "^1.2.6",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-toggle": "^1.1.10",
+    "@radix-ui/react-toggle-group": "^1.1.11",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@tailwindcss/vite": "^4.2.1",
+    "@tanstack/react-query": "^5.108.2",
+    "@tanstack/react-router": "^1.170.41",
+    "@tanstack/react-start": "1.168.60",
+    "@tanstack/router-plugin": "1.168.42",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^14.14.0",
+    "input-otp": "^1.4.2",
+    "lucide-react": "^0.575.0",
+    "react": "^19.2.0",
+    "react-day-picker": "^9.14.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.71.2",
+    "react-resizable-panels": "^4.6.5",
+    "recharts": "^2.15.4",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.1",
+    "tw-animate-css": "^1.3.4",
+    "vaul": "^1.1.2",
+    "vite-tsconfig-paths": "^6.0.2",
+    "zod": "^3.25.76",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@lovable.dev/vite-tanstack-config": "2.27.2",
+    "@testing-library/jest-dom": "^6.6.0",
+    "@testing-library/react": "^16.0.0",
+    "@types/node": "^22.16.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^15.15.0",
+    "jsdom": "^20.0.3",
+    "nitro": "3.0.260603-beta",
+    "prettier": "^3.7.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.56.1",
+    "vite": "8.1.5",
+    "vitest": "^4.1.10"
+  }
+}
+
+=== ESTRUCTURA src (sin ui) ===
+src\router.tsx
+src\routeTree.gen.ts
+src\server.ts
+src\start.ts
+src\styles.css
+src\vite-env.d.ts
+src\assets\descargar.jpg
+src\assets\lumina-logo-full.png
+src\assets\lumina-logo-mark.png
+src\components\lumina\BentoCatalog.tsx
+src\components\lumina\CartDrawer.tsx
+src\components\lumina\Hero.tsx
+src\components\lumina\MagneticButton.tsx
+src\components\lumina\MeshBackground.tsx
+src\components\lumina\OrderSteps.tsx
+src\components\lumina\ProductCard.tsx
+src\components\lumina\SiteFooter.tsx
+src\components\lumina\SiteHeader.tsx
+src\data\brand.ts
+src\data\products.ts
+src\hooks\use-mobile.tsx
+src\hooks\useAddToCart.ts
+src\hooks\useCartSync.ts
+src\lib\error-capture.ts
+src\lib\error-page.ts
+src\lib\format.ts
+src\lib\lovable-error-reporting.ts
+src\lib\shopify.ts
+src\lib\utils.ts
+src\routes\index.tsx
+src\routes\product.$handle.tsx
+src\routes\README.md
+src\routes\__root.tsx
+src\stores\cartStore.ts
+src\test\app-routing.test.tsx
+src\test\format.test.ts
+src\test\setup.ts
+
+=== ROUTES ===
+--- index.tsx ---
+import { createFileRoute } from "@tanstack/react-router";
+
+import { BentoCatalog } from "@/components/lumina/BentoCatalog";
+import { Hero } from "@/components/lumina/Hero";
+import { OrderSteps } from "@/components/lumina/OrderSteps";
+import { productsQueryOptions } from "@/lib/shopify";
+
+export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(productsQueryOptions),
+  head: () => ({
+    meta: [
+      { title: "LUMINA | Bienestar y cuidado facial con pago contraentrega" },
+      {
+        name: "description",
+        content:
+          "Suplementos de bienestar y cuidado facial con envÃ­o a toda Colombia. Pide en lÃ­nea, confirma por WhatsApp y paga en efectivo al recibir.",
+      },
+      { property: "og:title", content: "LUMINA | Bienestar y cuidado facial" },
+      {
+        property: "og:description",
+        content: "EnvÃ­o a toda Colombia y pago en efectivo al recibir.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Index,
+});
+
+function Index() {
+  return (
+    <>
+      <Hero />
+      <BentoCatalog />
+      <OrderSteps />
+    </>
+  );
+}
+--- product.$handle.tsx ---
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { motion } from "framer-motion";
+import { ArrowLeft, Banknote, Loader2, MessageCircle, Plus, Truck } from "lucide-react";
+
+import { getEditorial } from "@/data/products";
+import { useAddToCart } from "@/hooks/useAddToCart";
+import { formatCOP, stripEmojis } from "@/lib/format";
+import { displayName, productQueryOptions } from "@/lib/shopify";
+
+export const Route = createFileRoute("/product/$handle")({
+  loader: async ({ context, params }) => {
+    const product = await context.queryClient.ensureQueryData(productQueryOptions(params.handle));
+    if (!product) throw notFound();
+    return {
+      name: displayName(product),
+      summary: getEditorial(product.node.handle)?.summary ?? stripEmojis(product.node.description).slice(0, 150),
+      image: product.node.images.edges[0]?.node.url,
+    };
+  },
+  head: ({ loaderData }) => {
+    if (!loaderData) {
+      return { meta: [{ title: "Producto no disponible | LUMINA" }, { name: "robots", content: "noindex" }] };
+    }
+    const title = `${loaderData.name} | LUMINA`;
+    const meta = [
+      { title },
+      { name: "description", content: loaderData.summary },
+      { property: "og:title", content: title },
+      { property: "og:description", content: loaderData.summary },
+      { property: "og:type", content: "product" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ];
+    if (loaderData.image) {
+      meta.push({ property: "og:image", content: loaderData.image });
+      meta.push({ name: "twitter:image", content: loaderData.image });
+    }
+    return { meta };
+  },
+  notFoundComponent: () => (
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 text-center">
+      <p className="font-display text-5xl text-foreground">Producto no encontrado</p>
+      <Link to="/" hash="catalogo" className="eyebrow text-primary underline underline-offset-8">
+        Volver al catÃ¡logo
+      </Link>
+    </div>
+  ),
+  component: ProductPage,
+});
+
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+function ProductPage() {
+  const { handle } = Route.useParams();
+  const { data: product } = useSuspenseQuery(productQueryOptions(handle));
+  const { add, isLoading } = useAddToCart();
+  if (!product) return null;
+
+  const editorial = getEditorial(product.node.handle);
+  const name = displayName(product);
+  const images = product.node.images.edges.map((e) => e.node);
+  const price = product.node.priceRange.minVariantPrice;
+  const available = product.node.variants.edges.some((v) => v.node.availableForSale);
+  const descriptionHtml = stripEmojis(product.node.descriptionHtml ?? "");
+
+  return (
+    <main className="mx-auto max-w-7xl px-4 pb-24 pt-32 md:px-8">
+      <Link to="/" hash="catalogo" className="eyebrow inline-flex items-center gap-2 text-muted-foreground hover:text-primary">
+        <ArrowLeft className="h-3.5 w-3.5" />
+        CatÃ¡logo
+      </Link>
+
+      <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: EASE }}
+          className="glass rounded-[2.5rem] p-3 lg:sticky lg:top-28 lg:self-start"
+        >
+          <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-secondary">
+            {images[0] && <img src={images[0].url} alt={images[0].altText ?? name} className="h-full w-full object-cover" />}
+          </div>
+          {images.length > 1 && (
+            <div className="mt-3 grid grid-cols-4 gap-3">
+              {images.slice(1, 5).map((img) => (
+                <div key={img.url} className="aspect-square overflow-hidden rounded-2xl bg-secondary">
+                  <img src={img.url} alt={img.altText ?? name} className="h-full w-full object-cover" />
+                </div>
+              ))}
+            </div>
+          )}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.15, ease: EASE }}
+        >
+          <p className="eyebrow text-primary">{editorial?.category ?? "Bienestar"}</p>
+          <h1 className="mt-5 font-display text-[clamp(3rem,6vw,5.5rem)] text-foreground">{name}</h1>
+          {editorial?.summary && <p className="mt-6 text-lg text-muted-foreground">{editorial.summary}</p>}
+
+          <div className="glass mt-10 rounded-[2rem] p-7">
+            <div className="flex items-end justify-between">
+              <div>
+                <p className="eyebrow text-muted-foreground">Precio contraentrega</p>
+                <p className="mt-2 font-display text-5xl text-primary">
+                  {formatCOP(price.amount)}
+                  <span className="ml-2 font-sans text-xs tracking-widest text-muted-foreground">COP</span>
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              disabled={!available || isLoading}
+              onClick={() => add(product)}
+              className="btn-shine mt-7 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-gradient-sage text-xs font-medium uppercase tracking-[0.22em] text-primary-foreground shadow-lift transition-shadow hover:shadow-glow disabled:opacity-50"
+            >
+              {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+              {available ? "Agregar a mi pedido" : "Agotado"}
+            </button>
+            <ul className="mt-6 grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
+              <li className="flex items-center gap-2"><Truck className="h-4 w-4 text-primary" />EnvÃ­o a toda Colombia</li>
+              <li className="flex items-center gap-2"><Banknote className="h-4 w-4 text-primary" />Pagas al recibir</li>
+              <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-primary" />ConfirmaciÃ³n por WhatsApp</li>
+            </ul>
+          </div>
+
+          {descriptionHtml && (
+            <div className="mt-12">
+              <p className="eyebrow mb-5 text-primary">Detalles</p>
+              <div className="prose-lumina" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+            </div>
+          )}
+        </motion.div>
+      </div>
+    </main>
+  );
+}
+--- README.md ---
+# Routes
+
+TanStack Start uses **file-based routing**. Every `.tsx` file in this directory
+defines a route. Do **not** create `src/pages/`, `src/routes/_app/index.tsx`, or
+`app/layout.tsx` â€” those are Next.js / Remix conventions. The only root layout
+is `src/routes/__root.tsx`.
+
+## Conventions
+
+| File | URL |
+| --- | --- |
+| `index.tsx` | `/` |
+| `about.tsx` | `/about` |
+| `users/index.tsx` | `/users` |
+| `users/$id.tsx` | `/users/:id` (dynamic â€” bare `$`, no curly braces) |
+| `posts/{-$category}.tsx` | `/posts/:category?` (optional segment) |
+| `files/$.tsx` | `/files/*` (splat â€” read via `_splat` param, never `*`) |
+| `_layout.tsx` | layout route (renders children via `<Outlet />`) |
+| `__root.tsx` | app shell â€” wraps every page; preserve `<Outlet />` |
+
+`routeTree.gen.ts` is auto-generated. Don't edit it by hand.
+--- __root.tsx ---
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet,
+  Link,
+  createRootRouteWithContext,
+  useRouter,
+  HeadContent,
+  Scripts,
+  type ErrorComponentProps,
+} from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+import { reportLovableError } from "../lib/lovable-error-reporting";
+import { CartDrawer } from "@/components/lumina/CartDrawer";
+import { MeshBackground } from "@/components/lumina/MeshBackground";
+import { SiteFooter } from "@/components/lumina/SiteFooter";
+import { SiteHeader } from "@/components/lumina/SiteHeader";
+import { Toaster } from "@/components/ui/sonner";
+import { useCartSync } from "@/hooks/useCartSync";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Go home
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
+  console.error(error);
+  const router = useRouter();
+  useEffect(() => {
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+  }, [error]);
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          This page didn't load
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Something went wrong on our end. You can try refreshing or head back home.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button
+            type="button"
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Try again
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Go home
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    // Replace these placeholders with the app's name and description when first building the app.
+    // Each content route, / included, must still set its own head(). Never add og:image or
+    // twitter:image here: every page without its own would inherit the root's preview image.
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "LUMINA | Bienestar y cuidado facial" },
+      { name: "description", content: "Salud integral, bienestar y cuidado facial con pago contraentrega en Colombia." },
+      { name: "author", content: "LUMINA" },
+      { property: "og:title", content: "LUMINA | Bienestar y cuidado facial" },
+      { property: "og:description", content: "Salud integral, bienestar y cuidado facial con pago contraentrega en Colombia." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap",
+      },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="es">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+  useCartSync();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <MeshBackground />
+      <SiteHeader />
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
+      <SiteFooter />
+      <CartDrawer />
+      <Toaster position="top-center" />
+    </QueryClientProvider>
+  );
+}
+
+=== COMPONENTES LUMINA ===
+--- src\components\lumina\BentoCatalog.tsx ---
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { motion } from "framer-motion";
+
+import { productsQueryOptions } from "@/lib/shopify";
+import { ProductCard } from "./ProductCard";
+
+export function BentoCatalog() {
+  const { data: products } = useSuspenseQuery(productsQueryOptions);
+
+  return (
+    <section id="catalogo" className="relative scroll-mt-24 px-4 py-28 md:px-8 md:py-36">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <p className="eyebrow mb-6 flex items-center gap-4 text-primary">
+              <span className="h-px w-12 bg-accent" />
+              La colecciÃ³n
+            </p>
+            <h2 className="font-display text-[clamp(3rem,7vw,6.5rem)] text-foreground">
+              Cuatro fÃ³rmulas,
+              <br />
+              <span className="italic text-gradient-sand">un solo ritual.</span>
+            </h2>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+            className="max-w-sm text-sm leading-relaxed text-muted-foreground"
+          >
+            SelecciÃ³n curada para tu piel y tu equilibrio diario. Cada pedido se confirma
+            contigo por WhatsApp y se paga en efectivo al recibir.
+          </motion.p>
+        </div>
+
+        {products.length === 0 ? (
+          <div className="glass rounded-[2rem] p-16 text-center">
+            <p className="font-display text-4xl text-foreground">No hay productos disponibles</p>
+            <p className="mt-3 text-sm text-muted-foreground">Pronto tendremos novedades para ti.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            {products.map((product, i) => (
+              <ProductCard key={product.node.id} product={product} index={i} />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+--- src\components\lumina\ProductCard.tsx ---
+import { Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Loader2, Plus } from "lucide-react";
+import { useRef } from "react";
+
+import { getEditorial } from "@/data/products";
+import { useAddToCart } from "@/hooks/useAddToCart";
+import { formatCOP, stripEmojis } from "@/lib/format";
+import { displayName, type ShopifyProduct } from "@/lib/shopify";
+
+interface ProductCardProps {
+  product: ShopifyProduct;
+  index: number;
+}
+
+/** Short fallback copy for products that have no editorial entry yet. */
+function fallbackSummary(description: string): string {
+  const clean = stripEmojis(description);
+  return clean.length > 110 ? `${clean.slice(0, 110).trimEnd()}...` : clean;
+}
+
+export function ProductCard({ product, index }: ProductCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { add, isLoading } = useAddToCart();
+  const editorial = getEditorial(product.node.handle);
+  const image = product.node.images.edges[0]?.node;
+  const price = product.node.priceRange.minVariantPrice;
+  const available = product.node.variants.edges.some((v) => v.node.availableForSale);
+  const name = displayName(product);
+  const summary = editorial?.summary ?? fallbackSummary(product.node.description);
+
+  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    el.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  };
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 1.1, delay: (index % 2) * 0.12, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <motion.div
+        ref={ref}
+        onMouseMove={onMove}
+        onMouseEnter={() => ref.current?.style.setProperty("--glow", "1")}
+        onMouseLeave={() => ref.current?.style.setProperty("--glow", "0")}
+        whileHover={{ y: -10 }}
+        transition={{ type: "spring", stiffness: 200, damping: 22 }}
+        className="glass edge-glow group h-full rounded-[2rem] p-3 transition-shadow duration-700 hover:shadow-lift"
+      >
+        <div className="relative z-10 flex h-full flex-col gap-3 sm:flex-row">
+          <Link
+            to="/product/$handle"
+            params={{ handle: product.node.handle }}
+            className="relative block aspect-[3/4] overflow-hidden rounded-[1.5rem] bg-card sm:w-[46%] sm:flex-shrink-0"
+          >
+            {image && (
+              <img
+                src={image.url}
+                alt={image.altText ?? name}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-contain transition-transform duration-[1.6s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+              />
+            )}
+            {editorial?.badge && (
+              <span className="glass eyebrow absolute left-4 top-4 rounded-full px-4 py-2 text-[0.62rem] text-foreground">
+                {editorial.badge}
+              </span>
+            )}
+          </Link>
+
+          <div className="flex flex-1 flex-col justify-between gap-6 p-4 md:p-5">
+            <div>
+              <p className="eyebrow text-accent-foreground/60">
+                {String(index + 1).padStart(2, "0")} / {editorial?.category ?? "Bienestar"}
+              </p>
+              <Link to="/product/$handle" params={{ handle: product.node.handle }} className="group/title">
+                <h3 className="mt-4 font-display text-[clamp(2rem,2.8vw,2.8rem)] text-foreground transition-colors group-hover/title:text-primary">
+                  {name}
+                </h3>
+              </Link>
+              {summary && <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">{summary}</p>}
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <div>
+                <p className="eyebrow text-muted-foreground">Contraentrega</p>
+                <p className="mt-1 font-display text-3xl text-primary">
+                  {formatCOP(price.amount)}
+                  <span className="ml-2 font-sans text-xs tracking-widest text-muted-foreground">COP</span>
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  disabled={!available || isLoading}
+                  onClick={() => add(product)}
+                  className="btn-shine flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-gradient-sage px-5 text-xs font-medium uppercase tracking-[0.18em] text-primary-foreground shadow-soft transition-shadow hover:shadow-glow disabled:opacity-50"
+                >
+                  {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+                  {available ? "Agregar" : "Agotado"}
+                </button>
+                <Link
+                  to="/product/$handle"
+                  params={{ handle: product.node.handle }}
+                  aria-label={`Ver ${name}`}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
+                >
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.article>
+  );
+}
+
+=== DATA ===
+--- brand.ts ---
+/** Central brand configuration. */
+export const brand = {
+  name: "LUMINA",
+  tagline: "Salud integral, bienestar y cuidado facial",
+  /** WhatsApp number in international format, without "+" or spaces. */
+  whatsapp: "573011740941",
+  whatsappDisplay: "+57 301 174 0941",
+  shipping: "EnvÃ­o a toda Colombia",
+  payment: "Pago en efectivo al recibir",
+} as const;
+
+export function whatsappLink(message: string): string {
+  return `https://wa.me/${brand.whatsapp}?text=${encodeURIComponent(message)}`;
+}
+--- products.ts ---
+/**
+ * Centralized product catalog.
+ *
+ * Prices, stock, images and variant IDs come live from Shopify (Storefront API).
+ * This file only holds the editorial layer for each Shopify product handle:
+ * display name, category and short copy. New Shopify products appear automatically;
+ * an entry here is optional and only polishes how a product is presented.
+ * Add a new entry here (keyed by the Shopify handle) to control how a product appears.
+ */
+
+export interface ProductEditorial {
+  handle: string;
+  name: string;
+  category: string;
+  summary: string;
+  badge?: string;
+}
+
+export const productCatalog: ProductEditorial[] = [
+  {
+    handle: "dr-melaxin-peel-shot",
+    name: "Dr. Melaxin Peel Shot",
+    category: "Cuidado facial",
+    summary: "Cuidado facial y renovaciÃ³n de la piel.",
+    badge: "Ritual de piel",
+  },
+  {
+    handle: "suplemento-berberine-apoyo-al-bienestar",
+    name: "Suplemento Berberine Bienestar",
+    category: "Equilibrio metabÃ³lico",
+    summary: "Apoyo metabÃ³lico y equilibrio diario.",
+  },
+  {
+    handle: "suplemento-drenador-lynfatico",
+    name: "Suplemento Drenador LinfÃ¡tico",
+    category: "Drenaje y ligereza",
+    summary: "ReducciÃ³n de retenciÃ³n de lÃ­quidos y ligereza.",
+  },
+  {
+    handle: "natures-lymphatic-dranage-x2",
+    name: "Natures Lymphatic Drainage X2",
+    category: "FÃ³rmula en gotas",
+    summary: "FÃ³rmula lÃ­quida concentrada en gotas.",
+    badge: "Pack x2",
+  },
+];
+
+export function getEditorial(handle: string): ProductEditorial | undefined {
+  return productCatalog.find((p) => p.handle === handle);
+}
+
+=== ESTILOS ===
+--- styles.css ---
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+- LUMINA design system.
+- Bone #FAF8F4, pale mint #E9F1EC, deep sage #2F5D50, sand gold #C8A97E.
+- Cormorant Garamond for display, Inter for interface.
+ */
+
+@theme inline {
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-bone: var(--bone);
+  --color-mint: var(--mint);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-sand: var(--sand);
+  --color-sand-light: var(--sand-light);
+  --color-ink: var(--ink);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1.25rem;
+
+  /* Brand palette */
+  --bone: oklch(0.982 0.006 84.6);
+  --mint: oklch(0.95 0.013 158);
+  --sage: oklch(0.62 0.055 165);
+  --sage-deep: oklch(0.43 0.058 170);
+  --sand: oklch(0.76 0.067 75);
+  --sand-light: oklch(0.88 0.045 80);
+  --ink: oklch(0.25 0.03 170);
+
+  --glass: oklch(0.99 0.005 85 / 0.42);
+  --glass-strong: oklch(0.99 0.005 85 / 0.72);
+  --glass-border: oklch(1 0 0 / 0.6);
+
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: oklch(0.99 0.004 85);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.99 0.004 85);
+  --popover-foreground: var(--ink);
+  --primary: var(--sage-deep);
+  --primary-foreground: var(--bone);
+  --secondary: var(--mint);
+  --secondary-foreground: var(--sage-deep);
+  --muted: oklch(0.95 0.008 120);
+  --muted-foreground: oklch(0.47 0.025 165);
+  --accent: var(--sand);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.577 0.2 27);
+  --destructive-foreground: var(--bone);
+  --border: oklch(0.43 0.058 170 / 0.14);
+  --input: oklch(0.43 0.058 170 / 0.2);
+  --ring: var(--sand);
+
+  --gradient-sage: linear-gradient(135deg, var(--sage-deep), oklch(0.36 0.05 172));
+  --gradient-sand: linear-gradient(120deg, var(--sand-light), var(--sand), oklch(0.68 0.07 68));
+  --gradient-hero-veil: linear-gradient(
+    90deg,
+    oklch(0.982 0.006 84.6 / 0.96) 0%,
+    oklch(0.982 0.006 84.6 / 0.78) 34%,
+    oklch(0.982 0.006 84.6 / 0.1) 68%,
+    transparent 100%
+  );
+  --gradient-hero-floor: linear-gradient(0deg, var(--bone) 0%, transparent 32%);
+
+  --shadow-soft: 0 30px 60px -30px oklch(0.43 0.058 170 / 0.28),
+    0 8px 20px -12px oklch(0.43 0.058 170 / 0.18);
+  --shadow-lift: 0 50px 90px -40px oklch(0.43 0.058 170 / 0.42),
+    0 20px 40px -24px oklch(0.76 0.067 75 / 0.4);
+  --shadow-glow: 0 0 0 1px oklch(0.76 0.067 75 / 0.35), 0 18px 50px -12px oklch(0.76 0.067 75 / 0.6);
+

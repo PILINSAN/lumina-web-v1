@@ -37,7 +37,7 @@ export function Hero() {
           src={heroImage}
           alt="Mujer con piel luminosa respirando entre hojas verdes al amanecer"
           style={{ y: imageY, scale: imageScale }}
-          className="h-full w-full object-cover object-[70%_center]"
+          className="h-full w-full object-cover object-[70%_center] will-change-transform"
         />
       </motion.div>
       <div className="pointer-events-none absolute inset-0 bg-hero-veil" />
@@ -51,8 +51,8 @@ export function Hero() {
         <motion.img
           src={logoFull}
           alt="LUMINA"
-          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 0.3, ease: EASE }}
           className="logo-blend mb-5 w-36 md:mb-6 md:w-52"
         />

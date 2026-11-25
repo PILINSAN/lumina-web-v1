@@ -13,11 +13,24 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { CartDrawer } from "@/components/lumina/CartDrawer";
+import { LuminaSplashLoader } from "@/components/lumina/LuminaSplashLoader";
 import { MeshBackground } from "@/components/lumina/MeshBackground";
 import { SiteFooter } from "@/components/lumina/SiteFooter";
 import { SiteHeader } from "@/components/lumina/SiteHeader";
 import { Toaster } from "@/components/ui/sonner";
 import { useCartSync } from "@/hooks/useCartSync";
+
+function scrollToTopOnLoad() {
+  if (typeof window === "undefined") return;
+  try {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  } catch {
+    window.scrollTo(0, 0);
+  }
+}
 
 function NotFoundComponent() {
   return (
@@ -117,6 +130,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    scrollToTopOnLoad();
+  }, []);
+
   return (
     <html lang="es">
       <head>
@@ -134,8 +151,13 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   useCartSync();
 
+  useEffect(() => {
+    scrollToTopOnLoad();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
+      <LuminaSplashLoader />
       <MeshBackground />
       <SiteHeader />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

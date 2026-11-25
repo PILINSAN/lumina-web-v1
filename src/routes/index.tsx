@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { BentoCatalog } from "@/components/lumina/BentoCatalog";
+import { CustomerReviewsSection } from "@/components/lumina/CustomerReviewsSection";
 import { Hero } from "@/components/lumina/Hero";
+import { OrbitalClusterSection } from "@/components/lumina/OrbitalClusterSection";
 import { OrderSteps } from "@/components/lumina/OrderSteps";
 import { productsQueryOptions } from "@/lib/shopify";
 
@@ -31,7 +33,9 @@ function Index() {
   return (
     <>
       <Hero />
+      <OrbitalClusterSection />
       <BentoCatalog />
+      <CustomerReviewsSection />
       <OrderSteps />
     </>
   );

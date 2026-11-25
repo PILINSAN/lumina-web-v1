@@ -11,6 +11,7 @@ import { displayName, type ShopifyProduct } from "@/lib/shopify";
 interface ProductCardProps {
   product: ShopifyProduct;
   index: number;
+  instant?: boolean; // CAMBIO
 }
 
 /** Short fallback copy for products that have no editorial entry yet. */
@@ -19,7 +20,7 @@ function fallbackSummary(description: string): string {
   return clean.length > 110 ? `${clean.slice(0, 110).trimEnd()}...` : clean;
 }
 
-export function ProductCard({ product, index }: ProductCardProps) {
+export function ProductCard({ product, index, instant = false }: ProductCardProps) { // CAMBIO
   const ref = useRef<HTMLDivElement>(null);
   const { add, isLoading } = useAddToCart();
   const editorial = getEditorial(product.node.handle);
@@ -39,7 +40,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 60 }}
+      initial={instant ? false : { opacity: 0, y: 60 }} // CAMBIO
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 1.1, delay: (index % 2) * 0.12, ease: [0.16, 1, 0.3, 1] }}

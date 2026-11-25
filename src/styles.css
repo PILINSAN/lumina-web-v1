@@ -1,3 +1,27 @@
+@keyframes luminaShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+.lumina-shake {
+  animation: luminaShake 320ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.lumina-card-interactive {
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lumina-card-interactive:hover {
+  transform: translateY(-4px);
+}
+
+.lumina-card-interactive:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -140,8 +164,11 @@
     border-color: var(--color-border);
   }
 
-  html {
-    scroll-behavior: smooth;
+  /* Smooth anchor scrolling only for people who allow motion. */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
@@ -174,11 +201,12 @@
   80% { transform: translate3d(-10vw, 6vh, 0) scale(1.1); }
 }
 
+/* No blur filter: the radial gradients already fade to transparent. */
 @utility mesh-blob {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(90px);
   will-change: transform;
+  backface-visibility: hidden;
 }
 @utility mesh-a {
   background: radial-gradient(circle, var(--mint) 0%, transparent 70%);
@@ -193,24 +221,24 @@
   animation: mesh-drift-c 40s ease-in-out infinite;
 }
 
+/* No mix-blend-mode: avoids forcing layer blending on every frame. */
 @utility grain {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
   opacity: 0.08;
-  mix-blend-mode: multiply;
 }
 
 /* ---------- Glass ---------- */
 
 @utility glass {
   background: var(--glass);
-  backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-soft), inset 0 1px 0 oklch(1 0 0 / 0.7);
 }
 
 @utility glass-strong {
   background: var(--glass-strong);
-  backdrop-filter: blur(28px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(150%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-soft);
 }
@@ -360,6 +388,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .lumina-shake,
+  .lumina-card-interactive {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
   .mesh-a, .mesh-b, .mesh-c { animation: none; }
   .btn-shine::after { animation: none; }
 }
