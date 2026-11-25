@@ -2,7 +2,7 @@
 
 # ✨ LUMINA — Storefront v1 (Colombia)
 
-<img src="./src/assets/lumina-logo-full.png" alt="LUMINA Logo" width="260" />
+<img src="./src/assets/lumina-logo-transparent.png" alt="LUMINA Logo" width="260" />
 
 **Experiencia de compra ágil para Colombia con catálogo de Shopify y pedidos contraentrega (COD) por WhatsApp.**
 
